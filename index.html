@@ -1,0 +1,302 @@
+<!DOCTYPE html> 
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Kishea Abaigar Portfolio</title>  
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700&display=swap" rel="stylesheet">  
+<style> 
+html {
+  scroll-padding-top: 70px;
+}
+:root {  
+  --red-900: #fff0f0;  
+  --red-#42445A800: #ffd6d6;  
+  --gold: #d6aa2f;  
+  --gold-strong: #c88f11;  
+  --white: #2b0404;  
+  --muted: #4b2e2e;  
+  --shadow: rgba(0,0,0,0.6);  
+  --maxw: 1100px;  
+}  
+[data-theme="dark"] {  
+  --red-900: #2b0504;  
+  --red-800: #3b0505;  
+  --gold: #d6aa2f;  
+  --gold-strong: #c88f11;  
+  --white: #fffaf6;  
+  --muted: #e2d3c6;  
+}  
+[data-theme="dark"] .contact-title {
+  color: var(--gold) !important;
+}
+* { box-sizing: border-box; }  
+body { margin:0; font-family: Montserrat, sans-serif; color: var(--white); background: linear-gradient(180deg,var(--red-900),var(--red-800)); }  
+nav { position: sticky; top:0; background: linear-gradient(90deg,var(--gold),var(--gold-strong)); display:flex; justify-content: space-between; align-items:center; padding:12px 18px; z-index:100; }  
+nav .brand { font-family: Playfair Display, serif; font-weight:900; color:#2d0700; }  
+.nav-links a { color:#2d0700; text-decoration:none; margin-left:18px; font-weight:700; }  
+.mode-btn { margin-left:18px; padding:6px 10px; border-radius:999px; border:1px solid rgba(39,0,0,0.06); cursor:pointer; font-weight:800; color:#2d0700; background:transparent; }  /* HERO */
+.hero { position:relative; height:520px; display:flex#42445A; align-items:left; max-width:var(--maxw); margin:0 auto; padding:0 18px; justify-content:space-between; }
+.hero .left { max-width:740px; }
+.hero .small-tag { display:inline-block; background:rgba(0,0,0,0.05); padding:6px 10px; border-left:6px solid var(--gold); color:var(--gold); font-weight:800; font-size:12px; }
+.hero .greeting { font-family: Playfair Display, serif; font-size:36px; margin:12px 0 0; }
+.hero .name { font-size:px; font-family: Playfair Display, serif; margin:8px 0; line-height:0.92; }
+.hero .sub { color: var(--muted); max-width:640px; margin-top:12px; }
+.cta-row { margin-top:20px; display:flex; gap:12px; }
+.btn-primary { background: var(--gold); color:#2a0403; padding:12px 18px; border-radius:8px; border:0; cursor:pointer; font-weight:900; }
+.btn-ghost { background:transparent; border:1px solid rgba(255,255,255,0.08); padding:10px 14px; border-radius:8px; color: var(--white); cursor:pointer; }
+
+.hero .right { display:flex; flex-direction:column; align-items:center; gap:14px; }
+.ring { width:230px; height:230px; border-radius:50%; display:grid; place-items:center; border:12px solid rgba(214,170,47,0.12); }
+.circle { width:190px; height:190px; border-radius:50%; display:grid; place-items:center; background:radial-gradient(circle at 30% 20%, rgba(212,175,55,0.18), rgba(0,0,0,0.1)); overflow:hidden; position:relative; }
+.circle img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+/* PROFILE ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Apply animation */
+.hero .left {
+  animation: fadeUp 1.1s ease-out forwards;
+}
+
+.hero .right {
+  animation: fadeUp 1.3s ease-out forwards;
+}
+
+.circle img {
+  animation: float 3s ease-in-out infinite;
+}
+
+.quote { color: var(--gold); font-weight:1000; text-align:center; letter-spacing:0.6px; margin-top:12px; }
+
+
+/* ABOUT */
+.section { max-width: var(--maxw); margin:180px auto; padding:0 18px; }
+.h3 { font-family: Playfair Display, serif; font-size:44px; text-align:center; color: var(--gold); margin-bottom:20px; }
+.about-wrap { display:flex; overflow-x:auto; gap:18px; padding:18px 8px; }
+.about-card { min-width:320px; max-width:420px; background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.15)); padding:20px; border-radius:12px; border:2px solid rgba(255,255,255,0.03); position:relative; }
+.about-card h4 { margin:6px 0 12px; font-weight:900; color: var(--white); }
+.about-card .sketch { position:absolute; inset:8px; border-radius:10px; border:2px solid var(--gold); pointer-events:none; transform: skew(-1deg); box-shadow:0 8px 0 rgba(0,0,0,0.15); }
+
+/* ABOUT BOX GLOW ANIMATION */
+@keyframes aboutGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(214,170,47,0.2);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(214,170,47,0.5);
+  }
+}
+
+.about-card {
+  animation: aboutGlow 4s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 60px rgba(214,170,47,0.85);
+}
+
+/* SKILLS */
+.skills-title { font-family: Playfair Display, serif; font-size:40px; color: var(--white); text-align:center; margin-top:30px; }
+.skill-row { display:flex; flex-wrap:wrap; gap:22px; justify-content:center; margin-top:18px; }
+.skill { width:200px; height:110px; border-radius:50%; display:grid; place-items:center; border:6px solid rgba(214,170,47,0.18); background:transparent; font-weight:700; cursor:pointer; color:var(--white); }
+.skill.active { box-shadow:0 0 48px rgba(214,170,47,0.95); transform:translateY(-10px); background: radial-gradient(circle at 40% 30%, rgba(214,170,47,0.06), transparent); }
+
+/* SKILLS ANIMATION */
+.skill {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skill:hover {
+  transform: translateY(-10px) scale(1.08);
+  box-shadow: 0 0 45px rgba(214,170,47,0.85);
+}
+
+/* Soft pulse to attract attention */
+@keyframes skillPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(214,170,47,0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(214,170,47,0.55);
+  }
+}
+
+.skill {
+  animation: skillPulse 5s ease-in-out infinite;
+}
+/* PROJECT */
+.project-title { font-family: Playfair Display, serif; font-size:44px; text-align:center; color:var(--white); margin-top:34px; }
+.scribble { height:220px; border-radius:8px; border:6px solid var(--gold); margin:12px 24px; background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.15)); position:relative; }
+
+/* CONTACT */
+.contact-wrap { margin-top:30px; background: linear-gradient(180deg,#fff0f0,#ffd6d6); padding:28px; border-radius:8px; margin-bottom:40px; }
+.contact-title { text-align:center; font-family: Playfair Display, #42445Aserif; font-size:36px; color: var(--white); }
+.contact-gold { width:92%; margin:18px auto; background: linear-gradient(90deg,#f7db9a,#f2c74f); padding:22px; border-radius:12px; color:#2b0504; box-shadow:0 20px 50px rgba(0,0,0,0.15); }
+.contact-gold input, .contact-gold textarea { width:100%; padding:12px; border-radius:8px; border:1px solid rgba(0,0,0,0.08); margin-bottom:10px; }
+.send { background: goldenrod; color:#fff; padding:12px; border-radius:8px; border:0; cursor:pointer; font-weight:800;
+width: 100%;
+  
+}
+
+/* FOOTER */
+.footer { color: var(--muted); text-align:center; margin:30px 0 80px; }
+
+/* Responsive */
+@media (max-width:980px) {
+.hero { flex-direction:column; justify-content:center; height:auto; padding:30px 18px; }
+.hero .name { font-size:50px; }
+.hero .right { width:100%; order:2; display:flex; justify-content:center; }
+.about-card { min-width:280px; }
+}
+</style>
+
+</head>  
+<body data-theme="light">  <nav>  
+  <div class="brand">Kishea Abaigar</div>  
+  <div style="display:flex;align-items:center">  
+    <div class="nav-links">  
+      <a href="#home">HOME</a>  
+      <a href="#about">ABOUT</a>  
+      <a href="#skills">SKILLS</a>  
+      <a href="#project">PROJECT</a>  
+      <a href="#contact">CONTACT</a>  
+    </div>  
+    <button class="mode-btn" id="modeToggle">Light / Dark</button>  
+  </div>  
+</nav>  <section id="home" class="hero">  
+  <div class="left">  
+    <div class="small-tag">CODING. CREATING. GROWING. | IT STUDENT</div>  
+    <div class="greeting">Hello, I'm</div>  
+    <div class="name">Kishea</div>  
+    <div class="sub">Welcome to My Portfolio — A showcase of my learning journey. I hope you find this helpful.</div>  
+    <div class="cta-row">  
+      <button class="btn-primary" onclick="document.getElementById('project').scrollIntoView({behavior:'smooth'})">See Projects</button>  
+      <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>  
+    </div>  
+  </div>  
+  <div class="right">  
+    <div class="ring">  
+      <div class="circle"><img src="/profile.png" alt="Kishea profile"></div>  
+    </div>  
+    <div class="quote">“BE CAREFUL WHAT YOU WISH FOR”</div>  
+  </div>  
+</section>  <section id="about" class="section">  
+  <div class="h3">ABOUT</div>  
+  <div style="text-align:center; color:var(--muted); max-width:860px; margin:0 auto 18px; font-size: 20px;">  
+    I am a second-year Information Technology student at Eastern Visayas State University (EVSU). I am passionate about learning technology and developing my skills in web design and programming. I enjoy combining creativity with technology and continuously improving my abilities.  
+  </div>  
+  <div class="about-wrap">  
+    <div class="about-card">  
+      <h4>EDUCATION</h4>  
+      <p>Sabang BAO Elementary School</p>  
+      <p>Rustico Capahi Senior Memorial National High School</p>  
+      <p>Eastern Visayas State University (EVSU)</p>  
+      <div class="sketch"></div>  
+    </div>  
+    <div class="about-card">  
+      <h4>TECHNICAL INTERESTS</h4>  
+      <p>HTML, CSS</p>  
+      <p>Basic Web Design</p>  
+      <p>Basic Programming</p>  
+      <p>Computer Networking</p>  
+      <div class="sketch"></div>  
+    </div>  
+    <div class="about-card">  
+      <h4>HOBBIES</h4>  
+      <p>Drawing</p>  
+      <p>Reading books</p>  
+      <p>Crocheting</p>  
+      <p>Making handmade flowers</p>  
+      <div class="sketch"></div>  
+    </div>  
+  </div>  
+</section>  <section id="skills" class="section skills">  
+  <div class="skills-title">SKILLS</div>  
+  <div class="skill-row">  
+    <div class="skill">Programming C</div>  
+    <div class="skill">HTML</div>  
+    <div class="skill">Layout Design</div>  
+    <div class="skill">Teamwork</div>  
+    <div class="skill">Time Management</div>  
+    <div class="skill">Communication</div>  
+    <div class="skill">Problem Solving</div>  
+  </div>  
+  <div style="text-align:center; color: var(--gold); font-weight:700; margin-top:16px; font-size:16px;">
+    TOOLS: GitHub, VS Code, SPCK (Mobile)
+  </div>
+</section>  <section id="project" class="section project">  
+  <div class="project-title">PROJECT</div>  
+  <div class="scribble"><img src="/Screenshot_20251208-200214_1.png" alt="Project 1" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+</div>
+  <div class="project-desc" style="text-align:center; color:var(--muted); max-width:980px; font-size: 20px; margin:12px auto">
+    <strong>Personal Website Portfolio:</strong>This project is a personal website portfolio showcasing information about myself, including my background, hobbies, and personal details. The website is also responsive, making it accessible on different devices, although it does not include light/dark mode switching. The project was created using HTML and CSS.<strong> My Role:</strong> Responsible for the overall design, development, and responsive layout of the website.</div>  
+</section>  <section id="contact" class="contact-wrap">  
+  <div class="contact-title">CONTACT</div>  
+  <div class="contact-gold">  
+  <input type="text" id="name" placeholder="Your Name">
+<input type="email" id="email" placeholder="Email">
+<textarea id="message" placeholder="Message" rows="5"></textarea>
+<button class="send" id="sendBtn">Send Message</button>
+<div id="thankyouMsg" style="
+  display:none;
+  margin-top:12px;
+  padding:12px;
+  background:#fff;
+  border-radius:8px;
+  font-weight:700;
+  text-align:center;
+">
+  Thank you for your message!
+</div>
+    <p>✉ Email: <a href="mailto:kisheaabaigar@gmail.com" style="color:#2b0504; font-weight:700;">kisheaabaigar@gmail.com</a></p>
+<p> ⓕFacebook: <a href="https://www.facebook.com/Kishea.Abaigar" target="_blank" style="color:#2b0504; font-weight:700;">Kishea Abaigar</a></p>
+  </div>  
+</section>  <footer class="footer">  
+  &copy; All rights reserved.  
+</footer>  
+<script>
+const modeBtn = document.getElementById('modeToggle');  
+modeBtn.addEventListener('click', () => {  
+  if(document.body.dataset.theme === 'light') {  
+    document.body.dataset.theme = 'dark';  
+  } else {  
+    document.body.dataset.theme = 'light';  
+  }  
+});
+
+const sendBtn = document.getElementById('sendBtn');
+const thankyouMsg = document.getElementById('thankyouMsg');
+
+sendBtn.addEventListener('click', () => {
+  thankyouMsg.style.display = 'block';
+
+  // Clear input fields
+  document.querySelector('input[type="text"]').value = '';
+  document.querySelector('input[type="email"]').value = '';
+  document.querySelector('textarea').value = '';
+
+  setTimeout(() => {
+    thankyouMsg.style.display = 'none';
+  }, 1000);
+});
+  </script>
